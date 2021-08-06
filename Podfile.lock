@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.9.1)
+  - JMMaskTextField-Swift (0.1.3)
+  - Realm (3.20.0):
+    - Realm/Headers (= 3.20.0)
+  - Realm/Headers (3.20.0)
+  - RealmSwift (3.20.0):
+    - Realm (= 3.20.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8)
+  - JMMaskTextField-Swift
+  - RealmSwift (~> 3.20.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - JMMaskTextField-Swift
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  JMMaskTextField-Swift: 16aa552605b121285e6c2f0817ab31cea5f4704b
+  Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
+  RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
+
+PODFILE CHECKSUM: 96ef561303193eca86b363b002bd469391fc103c
+
+COCOAPODS: 1.10.1
