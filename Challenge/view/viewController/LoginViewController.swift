@@ -8,23 +8,21 @@
 import UIKit
 import RealmSwift
 
-class LoginViewController: UIViewController, UITextFieldDelegate, MyViewControllerDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, MyViewProtocol {
 
     @IBOutlet weak var txtFieldEmail: UITextField!
     @IBOutlet weak var txtFieldPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
-    var loginPresenter: LoginPresenter!
+    var loginPresenter: LoginPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginPresenter = LoginPresenter(myViewControllerDelegate: self, activityIndicatorHelper: ActivityIndicatorHelper(view: view))
+        loginPresenter = LoginPresenter(view: self, activityIndicatorHelper: ActivityIndicatorHelper(view: view))
         
         txtFieldEmail.delegate = self
-        txtFieldPassword.delegate = self
-        
-        print("Realm Path: \(Realm.Configuration.defaultConfiguration.fileURL!)")
+        txtFieldPassword.delegate = self        
     }
     
     override func viewWillAppear(_ animated: Bool) {

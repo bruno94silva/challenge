@@ -7,14 +7,12 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate, MyViewControllerDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate, MyViewProtocol {
 
     @IBOutlet weak var txtFieldFullName: UITextField!
     @IBOutlet weak var txtFieldEmail: UITextField!
     @IBOutlet weak var txtFieldCPF: UITextField!
-    
     @IBOutlet weak var txtFieldPhoneNumber: UITextField!
-    
     @IBOutlet weak var txtFieldPassword: UITextField!
     @IBOutlet weak var txtFieldPasswordConfirm: UITextField!
     @IBOutlet weak var switchEmailNewsletter: UISwitch!
@@ -25,7 +23,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, MyViewContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registerPresenter = RegisterPresenter(myViewControllerDelegate: self, activityIndicatorHelper: ActivityIndicatorHelper(view: view))
+        registerPresenter = RegisterPresenter(view: self, activityIndicatorHelper: ActivityIndicatorHelper(view: view))
         
         txtFieldFullName.delegate = self
         txtFieldEmail.delegate = self
@@ -83,19 +81,42 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, MyViewContr
     
     @IBAction func register(_ sender: Any) {
         
-        var phoneNumberApoio: String? = ""
+        var fullName: String = ""
+        var email: String = ""
+        var cpf: String = ""
+        var phoneNumber: String = ""
+        var password: String = ""
+        var confirmPassword: String = ""
 
-        if let phoneNumber = txtFieldPhoneNumber.text {
-            let newPhoneNumber1 = phoneNumber.replacingOccurrences(of: "(", with: "")
+        if let fullNameApoio = txtFieldFullName.text {
+            fullName = fullNameApoio
+        }
+        
+        if let emailApoio = txtFieldEmail.text {
+            email = emailApoio
+        }
+        
+        if let cpfApoio = txtFieldCPF.text {
+            cpf = cpfApoio
+        }
+        
+        if let confirmPasswordApoio = txtFieldPasswordConfirm.text {
+            confirmPassword = confirmPasswordApoio
+        }
+        
+        if let phoneNumberApoio = txtFieldPhoneNumber.text {
+            let newPhoneNumber1 = phoneNumberApoio.replacingOccurrences(of: "(", with: "")
             let newPhoneNumber2 = newPhoneNumber1.replacingOccurrences(of: ")", with: "")
             let newPhoneNumber3 = newPhoneNumber2.replacingOccurrences(of: "-", with: "")
             let newPhoneNumber4 = newPhoneNumber3.replacingOccurrences(of: " ", with: "")
             
-            phoneNumberApoio = newPhoneNumber4
-        } else {
-            phoneNumberApoio = txtFieldPhoneNumber.text
+            phoneNumber = newPhoneNumber4
         }
 
+        if let passwordApoio = txtFieldPassword.text {
+            password = passwordApoio
+        }
+        
         txtFieldFullName.isEnabled = false
         txtFieldEmail.isEnabled = false
         txtFieldCPF.isEnabled = false
@@ -105,7 +126,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, MyViewContr
         btnRegister.isEnabled = false
         
         if ConnectivityHelper.isConnectedToInternet() {
-            self.registerPresenter.register(fullName: txtFieldFullName.text, email: txtFieldEmail.text, cpf: txtFieldCPF.text, phoneNumber: phoneNumberApoio, password: txtFieldPassword.text, confirmPassword: txtFieldPasswordConfirm.text, emailUpdate: switchEmailNewsletter.isOn)
+            self.registerPresenter.register(fullName: fullName, email: email, cpf: cpf, phoneNumber: phoneNumber, password: password, confirmPassword: confirmPassword, emailUpdate: switchEmailNewsletter.isOn)
         } else {
             showMessageAlert(title: "Atenção", message: "Verifique sua conexão com a internet e tente novamente.")
         }

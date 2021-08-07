@@ -14,6 +14,10 @@
 		150EFCAB26BB2AE10060CB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150EFCAA26BB2AE10060CB49 /* Assets.xcassets */; };
 		150EFCAE26BB2AE10060CB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150EFCAC26BB2AE10060CB49 /* LaunchScreen.storyboard */; };
 		15240DE626BE1E9C00A12934 /* ConnectivityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15240DE526BE1E9C00A12934 /* ConnectivityHelper.swift */; };
+		15240DFB26BE299900A12934 /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15240DFA26BE299900A12934 /* StringTest.swift */; };
+		153B4BFD26BF0AD600CEAA2E /* LoginPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B4BFC26BF0AD600CEAA2E /* LoginPresenterProtocol.swift */; };
+		153B4C0426BF11B000CEAA2E /* RegisterPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B4C0326BF11B000CEAA2E /* RegisterPresenterProtocol.swift */; };
+		153B4C0A26BF173D00CEAA2E /* LoginPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B4C0926BF173D00CEAA2E /* LoginPresenterTest.swift */; };
 		155F68A226BC10E200686AEA /* MobileSessionDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F68A126BC10E200686AEA /* MobileSessionDAO.swift */; };
 		155F68A526BC111D00686AEA /* MobileSessionDAOImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F68A426BC111D00686AEA /* MobileSessionDAOImpl.swift */; };
 		155F68A826BC13CB00686AEA /* BaseDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F68A726BC13CB00686AEA /* BaseDAO.swift */; };
@@ -24,7 +28,10 @@
 		159FAA8626BB77480030A633 /* MobileSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FAA8526BB77480030A633 /* MobileSession.swift */; };
 		159FAA8A26BB788C0030A633 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FAA8926BB788C0030A633 /* LoginPresenter.swift */; };
 		159FAA8D26BB789C0030A633 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FAA8C26BB789C0030A633 /* RegisterPresenter.swift */; };
-		159FAA9226BB78FC0030A633 /* MyViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FAA9126BB78FC0030A633 /* MyViewControllerDelegate.swift */; };
+		159FAA9226BB78FC0030A633 /* MyViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159FAA9126BB78FC0030A633 /* MyViewProtocol.swift */; };
+		15B0303026BF1F260094F57C /* RegisterPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0302F26BF1F260094F57C /* RegisterPresenterTest.swift */; };
+		15B0304526BF23F10094F57C /* HomeViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0304426BF23F10094F57C /* HomeViewControllerTest.swift */; };
+		15B0305126BF275C0094F57C /* ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B0305026BF275C0094F57C /* ChallengeUITests.swift */; };
 		15EFBEED26BB8849001AD534 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFBEEC26BB8849001AD534 /* LoginRequest.swift */; };
 		15EFBEF026BB8854001AD534 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFBEEF26BB8854001AD534 /* RegisterRequest.swift */; };
 		15F51F1526BB948A003D5A22 /* ActivityIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F51F1426BB948A003D5A22 /* ActivityIndicatorHelper.swift */; };
@@ -32,6 +39,23 @@
 		15F51F2A26BC0F14003D5A22 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F51F2926BC0F14003D5A22 /* RealmHelper.swift */; };
 		3D133CAC62B121DF66BEF106 /* Pods_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5EB330513FE2D681FF3B79 /* Pods_Challenge.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15240DF226BE292900A12934 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 150EFC9626BB2ADE0060CB49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 150EFC9D26BB2ADE0060CB49;
+			remoteInfo = Challenge;
+		};
+		15B0305326BF275C0094F57C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 150EFC9626BB2ADE0060CB49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 150EFC9D26BB2ADE0060CB49;
+			remoteInfo = Challenge;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		150EFC9E26BB2ADE0060CB49 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +67,12 @@
 		150EFCAD26BB2AE10060CB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		150EFCAF26BB2AE10060CB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15240DE526BE1E9C00A12934 /* ConnectivityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityHelper.swift; sourceTree = "<group>"; };
+		15240DED26BE292900A12934 /* ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15240DF126BE292900A12934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15240DFA26BE299900A12934 /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
+		153B4BFC26BF0AD600CEAA2E /* LoginPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterProtocol.swift; sourceTree = "<group>"; };
+		153B4C0326BF11B000CEAA2E /* RegisterPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterProtocol.swift; sourceTree = "<group>"; };
+		153B4C0926BF173D00CEAA2E /* LoginPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTest.swift; sourceTree = "<group>"; };
 		155F68A126BC10E200686AEA /* MobileSessionDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileSessionDAO.swift; sourceTree = "<group>"; };
 		155F68A426BC111D00686AEA /* MobileSessionDAOImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileSessionDAOImpl.swift; sourceTree = "<group>"; };
 		155F68A726BC13CB00686AEA /* BaseDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDAO.swift; sourceTree = "<group>"; };
@@ -53,7 +83,12 @@
 		159FAA8526BB77480030A633 /* MobileSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileSession.swift; sourceTree = "<group>"; };
 		159FAA8926BB788C0030A633 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		159FAA8C26BB789C0030A633 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
-		159FAA9126BB78FC0030A633 /* MyViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewControllerDelegate.swift; sourceTree = "<group>"; };
+		159FAA9126BB78FC0030A633 /* MyViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewProtocol.swift; sourceTree = "<group>"; };
+		15B0302F26BF1F260094F57C /* RegisterPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenterTest.swift; sourceTree = "<group>"; };
+		15B0304426BF23F10094F57C /* HomeViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTest.swift; sourceTree = "<group>"; };
+		15B0304E26BF275C0094F57C /* ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15B0305026BF275C0094F57C /* ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeUITests.swift; sourceTree = "<group>"; };
+		15B0305226BF275C0094F57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15EFBEEC26BB8849001AD534 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		15EFBEEF26BB8854001AD534 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		15F51F1426BB948A003D5A22 /* ActivityIndicatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHelper.swift; sourceTree = "<group>"; };
@@ -73,6 +108,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15240DEA26BE292900A12934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15B0304B26BF275C0094F57C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				150EFCA026BB2ADE0060CB49 /* Challenge */,
+				15240DEE26BE292900A12934 /* ChallengeTests */,
+				15B0304F26BF275C0094F57C /* ChallengeUITests */,
 				150EFC9F26BB2ADE0060CB49 /* Products */,
 				028DB9A47E629219349F4028 /* Pods */,
 				CD518FBD07316AA342A6750D /* Frameworks */,
@@ -99,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				150EFC9E26BB2ADE0060CB49 /* Challenge.app */,
+				15240DED26BE292900A12934 /* ChallengeTests.xctest */,
+				15B0304E26BF275C0094F57C /* ChallengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +195,43 @@
 			path = viewController;
 			sourceTree = "<group>";
 		};
+		15240DEE26BE292900A12934 /* ChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				15B0304326BF23DB0094F57C /* viewController */,
+				153B4BF026BF07DC00CEAA2E /* presenter */,
+				15240DF926BE298400A12934 /* extension */,
+				15240DF126BE292900A12934 /* Info.plist */,
+			);
+			path = ChallengeTests;
+			sourceTree = "<group>";
+		};
+		15240DF926BE298400A12934 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				15240DFA26BE299900A12934 /* StringTest.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		153B4BF026BF07DC00CEAA2E /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				153B4C0926BF173D00CEAA2E /* LoginPresenterTest.swift */,
+				15B0302F26BF1F260094F57C /* RegisterPresenterTest.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		153B4BFB26BF0ACC00CEAA2E /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				153B4BFC26BF0AD600CEAA2E /* LoginPresenterProtocol.swift */,
+				153B4C0326BF11B000CEAA2E /* RegisterPresenterProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
 		1574CF3326BCC5FB00EDF391 /* extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +252,7 @@
 		159FAA8826BB787C0030A633 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
+				153B4BFB26BF0ACC00CEAA2E /* protocol */,
 				159FAA8926BB788C0030A633 /* LoginPresenter.swift */,
 				159FAA8C26BB789C0030A633 /* RegisterPresenter.swift */,
 			);
@@ -171,9 +262,26 @@
 		159FAA8F26BB78C30030A633 /* protocol */ = {
 			isa = PBXGroup;
 			children = (
-				159FAA9126BB78FC0030A633 /* MyViewControllerDelegate.swift */,
+				159FAA9126BB78FC0030A633 /* MyViewProtocol.swift */,
 			);
 			path = protocol;
+			sourceTree = "<group>";
+		};
+		15B0304326BF23DB0094F57C /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				15B0304426BF23F10094F57C /* HomeViewControllerTest.swift */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		15B0304F26BF275C0094F57C /* ChallengeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				15B0305026BF275C0094F57C /* ChallengeUITests.swift */,
+				15B0305226BF275C0094F57C /* Info.plist */,
+			);
+			path = ChallengeUITests;
 			sourceTree = "<group>";
 		};
 		15EFBEEB26BB8838001AD534 /* network */ = {
@@ -268,6 +376,42 @@
 			productReference = 150EFC9E26BB2ADE0060CB49 /* Challenge.app */;
 			productType = "com.apple.product-type.application";
 		};
+		15240DEC26BE292900A12934 /* ChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15240DF426BE292900A12934 /* Build configuration list for PBXNativeTarget "ChallengeTests" */;
+			buildPhases = (
+				15240DE926BE292900A12934 /* Sources */,
+				15240DEA26BE292900A12934 /* Frameworks */,
+				15240DEB26BE292900A12934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15240DF326BE292900A12934 /* PBXTargetDependency */,
+			);
+			name = ChallengeTests;
+			productName = ChallengeTests;
+			productReference = 15240DED26BE292900A12934 /* ChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		15B0304D26BF275C0094F57C /* ChallengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15B0305526BF275C0094F57C /* Build configuration list for PBXNativeTarget "ChallengeUITests" */;
+			buildPhases = (
+				15B0304A26BF275C0094F57C /* Sources */,
+				15B0304B26BF275C0094F57C /* Frameworks */,
+				15B0304C26BF275C0094F57C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15B0305426BF275C0094F57C /* PBXTargetDependency */,
+			);
+			name = ChallengeUITests;
+			productName = ChallengeUITests;
+			productReference = 15B0304E26BF275C0094F57C /* ChallengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -279,6 +423,14 @@
 				TargetAttributes = {
 					150EFC9D26BB2ADE0060CB49 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					15240DEC26BE292900A12934 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 150EFC9D26BB2ADE0060CB49;
+					};
+					15B0304D26BF275C0094F57C = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 150EFC9D26BB2ADE0060CB49;
 					};
 				};
 			};
@@ -296,6 +448,8 @@
 			projectRoot = "";
 			targets = (
 				150EFC9D26BB2ADE0060CB49 /* Challenge */,
+				15240DEC26BE292900A12934 /* ChallengeTests */,
+				15B0304D26BF275C0094F57C /* ChallengeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -308,6 +462,20 @@
 				150EFCAE26BB2AE10060CB49 /* LaunchScreen.storyboard in Resources */,
 				150EFCAB26BB2AE10060CB49 /* Assets.xcassets in Resources */,
 				150EFCA926BB2ADE0060CB49 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15240DEB26BE292900A12934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15B0304C26BF275C0094F57C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +534,7 @@
 				150EFCA226BB2ADE0060CB49 /* AppDelegate.swift in Sources */,
 				159FAA8A26BB788C0030A633 /* LoginPresenter.swift in Sources */,
 				15EFBEED26BB8849001AD534 /* LoginRequest.swift in Sources */,
+				153B4BFD26BF0AD600CEAA2E /* LoginPresenterProtocol.swift in Sources */,
 				150EFCA426BB2ADE0060CB49 /* SceneDelegate.swift in Sources */,
 				159FAA8326BB76A50030A633 /* User.swift in Sources */,
 				155F68AB26BC13FC00686AEA /* BaseDAOImpl.swift in Sources */,
@@ -373,17 +542,50 @@
 				159FAA8626BB77480030A633 /* MobileSession.swift in Sources */,
 				155F68A826BC13CB00686AEA /* BaseDAO.swift in Sources */,
 				159FAA7F26BB73510030A633 /* RegisterViewController.swift in Sources */,
-				159FAA9226BB78FC0030A633 /* MyViewControllerDelegate.swift in Sources */,
+				159FAA9226BB78FC0030A633 /* MyViewProtocol.swift in Sources */,
 				15240DE626BE1E9C00A12934 /* ConnectivityHelper.swift in Sources */,
 				15F51F1526BB948A003D5A22 /* ActivityIndicatorHelper.swift in Sources */,
 				15F51F2A26BC0F14003D5A22 /* RealmHelper.swift in Sources */,
 				155F68A226BC10E200686AEA /* MobileSessionDAO.swift in Sources */,
 				15F51F1D26BB9781003D5A22 /* HomeViewController.swift in Sources */,
 				159FAA8D26BB789C0030A633 /* RegisterPresenter.swift in Sources */,
+				153B4C0426BF11B000CEAA2E /* RegisterPresenterProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15240DE926BE292900A12934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B0303026BF1F260094F57C /* RegisterPresenterTest.swift in Sources */,
+				153B4C0A26BF173D00CEAA2E /* LoginPresenterTest.swift in Sources */,
+				15240DFB26BE299900A12934 /* StringTest.swift in Sources */,
+				15B0304526BF23F10094F57C /* HomeViewControllerTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15B0304A26BF275C0094F57C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B0305126BF275C0094F57C /* ChallengeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15240DF326BE292900A12934 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 150EFC9D26BB2ADE0060CB49 /* Challenge */;
+			targetProxy = 15240DF226BE292900A12934 /* PBXContainerItemProxy */;
+		};
+		15B0305426BF275C0094F57C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 150EFC9D26BB2ADE0060CB49 /* Challenge */;
+			targetProxy = 15B0305326BF275C0094F57C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		150EFCA726BB2ADE0060CB49 /* Main.storyboard */ = {
@@ -559,6 +761,80 @@
 			};
 			name = Release;
 		};
+		15240DF526BE292900A12934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChallengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dextra.ChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Challenge.app/Challenge";
+			};
+			name = Debug;
+		};
+		15240DF626BE292900A12934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChallengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dextra.ChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Challenge.app/Challenge";
+			};
+			name = Release;
+		};
+		15B0305626BF275C0094F57C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dextra.ChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Challenge;
+			};
+			name = Debug;
+		};
+		15B0305726BF275C0094F57C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dextra.ChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Challenge;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -576,6 +852,24 @@
 			buildConfigurations = (
 				150EFCB326BB2AE10060CB49 /* Debug */,
 				150EFCB426BB2AE10060CB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15240DF426BE292900A12934 /* Build configuration list for PBXNativeTarget "ChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15240DF526BE292900A12934 /* Debug */,
+				15240DF626BE292900A12934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15B0305526BF275C0094F57C /* Build configuration list for PBXNativeTarget "ChallengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15B0305626BF275C0094F57C /* Debug */,
+				15B0305726BF275C0094F57C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

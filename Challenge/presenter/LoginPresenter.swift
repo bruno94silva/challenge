@@ -7,58 +7,62 @@
 
 import Foundation
 
-class LoginPresenter: NSObject {
+class LoginPresenter: LoginPresenterProtocol {
     
     let loginRequest = LoginRequest()
     let mobileSessionDAO = MobileSessionDAOImpl()
-    var myViewControllerDelegate: MyViewControllerDelegate!
+    var view: MyViewProtocol?
     var activityIndicatorHelper: ActivityIndicatorHelper?
+    var statusCodeLogin: String = ""
     
-    init(myViewControllerDelegate: MyViewControllerDelegate, activityIndicatorHelper: ActivityIndicatorHelper) {
-        self.myViewControllerDelegate = myViewControllerDelegate
+    init() {
+        
+    }
+    
+    init(view: MyViewProtocol, activityIndicatorHelper: ActivityIndicatorHelper) {
+        self.view = view
         self.activityIndicatorHelper = activityIndicatorHelper
     }
     
-    func login(email: String?, password: String?) {
-        
-        if email != nil && !email!.isEmpty {
-            if !email!.isValidEmail() {
-                self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe um e-mail válido.")
+    func login(email: String, password: String) {
+        if !email.isEmpty {
+            if !email.isValidEmail() {
+                self.view?.showMessageAlert(title: "Atenção", message: "Informe um e-mail válido.")                
             } else {
-                if password != nil && !password!.isEmpty {
-                    
-                    self.activityIndicatorHelper!.start()
+                if !password.isEmpty {
+                    self.activityIndicatorHelper?.start()
                     
                     var parameters: [String : String] = [:]
-                    parameters["email"] = email!
-                    parameters["password"] = password!
+                    parameters["email"] = email
+                    parameters["password"] = password
                                     
                     loginRequest.login(parameters: parameters) { retorno in
 
-                        self.activityIndicatorHelper!.stop()
+                        self.activityIndicatorHelper?.stop()
 
                         let retornoArray = retorno.split(separator: "|")
+                        
+                        self.statusCodeLogin = String(retornoArray[0])
                         
                         if retornoArray[0] == "200" {
                             do {
                                 let mobileSession = try self.mobileSessionDAO.getMobileSession(token: String(retornoArray[1]))
                                 
-                                self.myViewControllerDelegate.success(mobileSession: mobileSession)
+                                self.view?.success(mobileSession: mobileSession)
                             } catch {
                                 print(error)
-                                self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o login. Verifique sua conexão e tente novamente.")
+                                self.view?.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o login. Verifique sua conexão e tente novamente.")
                             }
                         } else {
-                            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o login. Verifique sua conexão e tente novamente.")
+                            self.view?.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o login. Verifique sua conexão e tente novamente.")
                         }
                     }
                 } else {
-                    self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe sua senha.")
+                    self.view?.showMessageAlert(title: "Atenção", message: "Informe sua senha.")
                 }
             }
         } else {
-            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe seu e-mail.")
+            self.view?.showMessageAlert(title: "Atenção", message: "Informe seu e-mail.")
         }
     }
-    
 }

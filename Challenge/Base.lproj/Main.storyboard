@@ -406,10 +406,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Djn-Sn-zVC" userLabel="btnLogout">
-                                <rect key="frame" x="265" y="40" width="82" height="42"/>
+                                <rect key="frame" x="263" y="40" width="84" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Z19-8v-awG"/>
-                                    <constraint firstAttribute="width" constant="82" id="rhS-sb-kgc"/>
+                                    <constraint firstAttribute="width" constant="84" id="rhS-sb-kgc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Logout">

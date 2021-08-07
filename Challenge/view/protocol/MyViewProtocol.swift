@@ -8,6 +8,9 @@
 import Foundation
 
 protocol MyViewProtocol {
+    
     func showMessageAlert(title: String, message: String)
+    
     func success(mobileSession: MobileSession)
+    
 }

@@ -7,92 +7,99 @@
 
 import Foundation
 
-class RegisterPresenter: NSObject {
+class RegisterPresenter: RegisterPresenterProtocol {
  
     let registerRequest = RegisterRequest()
     let mobileSessionDAO = MobileSessionDAOImpl()
-    var myViewControllerDelegate: MyViewControllerDelegate!
+    var view: MyViewProtocol?
     var activityIndicatorHelper: ActivityIndicatorHelper?
+    var statusCodeRegister: String = ""
     
-    init(myViewControllerDelegate: MyViewControllerDelegate, activityIndicatorHelper: ActivityIndicatorHelper) {
-        self.myViewControllerDelegate = myViewControllerDelegate
+    init() {
+        
+    }
+    
+    init(view: MyViewProtocol, activityIndicatorHelper: ActivityIndicatorHelper) {
+        self.view = view
         self.activityIndicatorHelper = activityIndicatorHelper
     }
     
-    func register(fullName: String?, email: String?, cpf: String?, phoneNumber: String?, password: String?, confirmPassword: String?, emailUpdate: Bool) {
+    func register(fullName: String, email: String, cpf: String, phoneNumber: String, password: String, confirmPassword: String, emailUpdate: Bool) {
         
-        if fullName != nil && !fullName!.isEmpty {
-            if !fullName!.isTwoWordsOrMore() {
-                self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Nome e sobrenome são necessários.")
+        if !fullName.isEmpty {
+            if !fullName.isTwoWordsOrMore() {
+                self.view?.showMessageAlert(title: "Atenção", message: "Nome e sobrenome são necessários.")
             } else {
                 
-                if email != nil && !email!.isEmpty {
-                    if !email!.isValidEmail() {
-                        self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "E-mail inválido.")
+                if !email.isEmpty {
+                    if !email.isValidEmail() {
+                        self.view?.showMessageAlert(title: "Atenção", message: "E-mail inválido.")
                     } else {
                         
-                        if cpf != nil && !cpf!.isEmpty {
-                            if cpf!.count < 11 {
-                                self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "CPF inválido.")
+                        if !cpf.isEmpty {
+                            if cpf.count < 11 {
+                                self.view?.showMessageAlert(title: "Atenção", message: "CPF inválido.")
                             } else {
                                 
-                                if phoneNumber != nil && !phoneNumber!.isEmpty {
-                                    if phoneNumber!.count < 11 {
-                                        self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "O número de telefone deve conter 11 dígitos, contando com o DDD.")
+                                if !phoneNumber.isEmpty {
+                                    if phoneNumber.count < 11 {
+                                        self.view?.showMessageAlert(title: "Atenção", message: "O número de telefone deve conter 11 dígitos, contando com o DDD.")
                                     } else {
                                         
-                                        if password != nil && !password!.isEmpty {                                            
-                                            if !password!.isValidPassword() {
-                                                self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "A senha deve possuir pelo menos oito caracteres, ao menos uma letra maiúscula e um número.")
+                                        if !password.isEmpty {
+                                            if !password.isValidPassword() {
+                                                self.view?.showMessageAlert(title: "Atenção", message: "A senha deve possuir pelo menos oito caracteres, ao menos uma letra maiúscula e um número.")
                                             } else {
                                                 
-                                                if confirmPassword != nil && !confirmPassword!.isEmpty {
-                                                    if confirmPassword!.elementsEqual(password!){
-                                                        self.activityIndicatorHelper!.start()
+                                                if !confirmPassword.isEmpty {
+                                                    if confirmPassword.elementsEqual(password){
+                                                        self.activityIndicatorHelper?.start()
                                                         
                                                         var parameters: [String : Any] = [:]
-                                                        parameters["name"] = fullName!
-                                                        parameters["email"] = email!
-                                                        parameters["phoneNumber"] = phoneNumber!
-                                                        parameters["password"] = password!
+                                                        parameters["name"] = fullName
+                                                        parameters["email"] = email
+                                                        parameters["phoneNumber"] = phoneNumber
+                                                        parameters["password"] = password
                                                         parameters["emailUpdatesAllowed"] = emailUpdate
-                                                        parameters["cpf"] = cpf!
+                                                        parameters["cpf"] = cpf
                                                         
                                                         registerRequest.registerUser(parameters: parameters) { statusCode in
                                                             
-                                                            self.activityIndicatorHelper!.stop()
+                                                            self.activityIndicatorHelper?.stop()
+                                                            
+                                                            self.statusCodeRegister = String(statusCode)
                                                             
                                                             if statusCode == 200 {
-                                                                self.myViewControllerDelegate.showMessageAlert(title: "Sucesso", message: "Usuário cadastrado com sucesso!")
+                                                                self.view?.showMessageAlert(title: "Sucesso", message: "Usuário cadastrado com sucesso!")
                                                             } else {
-                                                                self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o registro. Verifique sua conexão e tente novamente.")
+                                                                self.view?.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o registro. Verifique sua conexão e tente novamente.")
                                                             }
                                                         }
                                                     } else {
-                                                        self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "A confirmação de senha deve ser igual à senha inserida.")
+                                                        self.view?.showMessageAlert(title: "Atenção", message: "A confirmação de senha deve ser igual à senha inserida.")
                                                     }
                                                 } else {
-                                                    self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Confirme sua senha informando ela novamente.")
+                                                    self.view?.showMessageAlert(title: "Atenção", message: "Confirme sua senha informando ela novamente.")
                                                 }
                                             }
                                         } else {
-                                            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe uma senha.")
+                                            self.view?.showMessageAlert(title: "Atenção", message: "Informe uma senha.")
                                         }
                                     }
                                 } else {
-                                    self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe o número do seu telefone celular.")
+                                    self.view?.showMessageAlert(title: "Atenção", message: "Informe o número do seu telefone celular.")
                                 }
                             }
                         } else {
-                            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe seu CPF.")
+                            self.view?.showMessageAlert(title: "Atenção", message: "Informe seu CPF.")
                         }
                     }
                 } else {
-                    self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe seu e-mail.")
+                    self.view?.showMessageAlert(title: "Atenção", message: "Informe seu e-mail.")
                 }
             }
         } else {
-            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe seu nome completo.")
+            self.view?.showMessageAlert(title: "Atenção", message: "Informe seu nome completo.")
         }
     }
 }

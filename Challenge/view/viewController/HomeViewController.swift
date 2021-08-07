@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if mobileSession != nil && mobileSession!.user != nil && !mobileSession!.user!.name!.isEmpty {
+        if mobileSession != nil && mobileSession!.user != nil && mobileSession!.user!.name != nil && !mobileSession!.user!.name!.isEmpty {
             lblUser.text = mobileSession!.user!.name
         }
     }

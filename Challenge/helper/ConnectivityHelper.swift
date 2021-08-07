@@ -10,7 +10,7 @@ import Alamofire
 
 class ConnectivityHelper {
 
-    class func isConnectedToInternet() -> Bool {
+    class func isConnectedToInternet() -> Bool {        
         return NetworkReachabilityManager()!.isReachable
     }
 }
