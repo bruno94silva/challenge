@@ -13,9 +13,11 @@ class LoginRequest {
     let jsonEncoder = JSONEncoder()
     let mobileSessionDAO = MobileSessionDAOImpl()
     
-    func login(parameters: [String : String], completion: @escaping (Int) -> Void) {
+    func login(parameters: [String : String], completion: @escaping (String) -> Void) {
         
         Alamofire.request("https://us-central1-rh-challenges.cloudfunctions.net/api/users/token", method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { requisition in
+            
+            var retorno: String = "999|"
             
             if requisition.response != nil {
                 let statusCode = requisition.response!.statusCode
@@ -29,19 +31,21 @@ class LoginRequest {
                         
                             try self.mobileSessionDAO.save(realmObject: mobileSession)
                             
-                            completion(statusCode)
+                            retorno = "\(statusCode)|\(mobileSession.token!)"
+                            
+                            completion(retorno)
                         } catch {
                             print(error)
-                            completion(996)
+                            completion(retorno)
                         }
                     } else {
-                        completion(997)
+                        completion(retorno)
                     }
                 } else {
-                    completion(statusCode)
+                    completion(retorno)
                 }
             } else {
-                completion(999)
+                completion(retorno)
             }
         }
     }

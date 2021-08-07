@@ -22,10 +22,7 @@ class LoginPresenter: NSObject {
     func login(email: String?, password: String?) {
         
         if email != nil && !email!.isEmpty {
-
-            let isValidEmail = email!.isValidEmail()
-
-            if !isValidEmail {
+            if !email!.isValidEmail() {
                 self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe um e-mail válido.")
             } else {
                 if password != nil && !password!.isEmpty {
@@ -36,36 +33,31 @@ class LoginPresenter: NSObject {
                     parameters["email"] = email!
                     parameters["password"] = password!
                                     
-                    loginRequest.login(parameters: parameters) { statusCode in
+                    loginRequest.login(parameters: parameters) { retorno in
 
                         self.activityIndicatorHelper!.stop()
 
-                        if statusCode == 200 {
-
+                        let retornoArray = retorno.split(separator: "|")
+                        
+                        if retornoArray[0] == "200" {
                             do {
-                                let mobileSession = try self.mobileSessionDAO.getMobileSession()
+                                let mobileSession = try self.mobileSessionDAO.getMobileSession(token: String(retornoArray[1]))
                                 
                                 self.myViewControllerDelegate.success(mobileSession: mobileSession)
                             } catch {
                                 print(error)
+                                self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o login. Verifique sua conexão e tente novamente.")
                             }
-                            
-                        } else if statusCode == 404 {
-                            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Usuário e/ou senha inválidos.")
-                            
-                        } else if statusCode == 422 {
-                            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Usuário e/ou senha inválidos.")
-                            
-                        } else if statusCode == 999 {
-                            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Problema ao tentar fazer requisição. Contate o administrador.")
+                        } else {
+                            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Ocorreu um erro ao efetuar o login. Verifique sua conexão e tente novamente.")
                         }
                     }
                 } else {
-                    self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe a senha.")
+                    self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe sua senha.")
                 }
             }
         } else {
-            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe o e-mail.")
+            self.myViewControllerDelegate.showMessageAlert(title: "Atenção", message: "Informe seu e-mail.")
         }
     }
     

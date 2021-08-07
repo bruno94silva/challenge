@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate, MyViewControllerDelegate {
 
@@ -22,6 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, MyViewControll
         
         txtFieldEmail.delegate = self
         txtFieldPassword.delegate = self
+        
+        print("Realm Path: \(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +46,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate, MyViewControll
     }
     
     @IBAction func login(_ sender: Any) {
-        self.loginPresenter.login(email: txtFieldEmail.text!, password: txtFieldPassword.text!)
+        
+        txtFieldEmail.isEnabled = false
+        txtFieldPassword.isEnabled = false
+        btnLogin.isEnabled = false
+        
+        if ConnectivityHelper.isConnectedToInternet() {
+            self.loginPresenter.login(email: txtFieldEmail.text!, password: txtFieldPassword.text!)
+        } else {
+            showMessageAlert(title: "Atenção", message: "Verifique sua conexão com a internet e tente novamente.")
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,6 +63,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, MyViewControll
     }
     
     func showMessageAlert(title: String, message: String) {
+        txtFieldEmail.isEnabled = true
+        txtFieldPassword.isEnabled = true
+        btnLogin.isEnabled = true
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         
@@ -72,7 +88,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, MyViewControll
             txtFieldPassword.becomeFirstResponder()
         } else if textField == txtFieldPassword {
             txtFieldPassword.resignFirstResponder()
-            login(UIButton())
         }
         
         return true

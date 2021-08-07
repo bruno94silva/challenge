@@ -16,7 +16,7 @@ class RegisterRequest {
     func registerUser(parameters: [String : Any], completion: @escaping (Int) -> Void) {
         
         Alamofire.request("https://us-central1-rh-challenges.cloudfunctions.net/api/users", method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { requisition in
-            
+                        
             if requisition.response != nil {
                 
                 let statusCode = requisition.response!.statusCode
@@ -28,18 +28,17 @@ class RegisterRequest {
                             let mobileSession: MobileSession = try JSONDecoder().decode(MobileSession.self, from: jsonData)
                         
                             try self.mobileSessionDAO.save(realmObject: mobileSession)
-                            
+                                                        
                             completion(statusCode)
                         } catch {
                             print(error)
-                            completion(996)
+                            completion(99)
                         }
                     } else {
-                        completion(997)
+                        completion(999)
                     }
-
                 } else {
-                    completion(statusCode)
+                    completion(999)
                 }
             } else {
                 completion(999)

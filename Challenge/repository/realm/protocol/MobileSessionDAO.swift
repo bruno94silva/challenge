@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MobileSessionDAO {
-    func getMobileSession() throws -> MobileSession
+    func getMobileSession(token: String) throws -> MobileSession
 }

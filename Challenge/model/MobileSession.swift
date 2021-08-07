@@ -10,11 +10,10 @@ import RealmSwift
 
 class MobileSession: Object, Codable {
     
-    let rowId = RealmOptional<Int>()
     @objc dynamic var token: String?
     @objc dynamic var user: User?
     
     func primaryKey() -> String? {
-        return "rowId"
+        return "token"
     }
 }

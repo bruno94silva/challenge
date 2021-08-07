@@ -10,13 +10,13 @@ import RealmSwift
 
 class MobileSessionDAOImpl: BaseDAOImpl, MobileSessionDAO {
  
-    func getMobileSession() throws -> MobileSession {
+    func getMobileSession(token: String) throws -> MobileSession {
         var mobileSession = MobileSession()
         
         do {
             let realm = try RealmHelper().getRealm()
             
-            let objects = realm.objects(MobileSession.self)
+            let objects = realm.objects(MobileSession.self).filter("token = '\(token)'")
             
             if !objects.isEmpty {
                 mobileSession = objects[0]

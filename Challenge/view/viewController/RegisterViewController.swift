@@ -96,11 +96,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, MyViewContr
             phoneNumberApoio = txtFieldPhoneNumber.text
         }
 
-        self.registerPresenter.register(fullName: txtFieldFullName.text, email: txtFieldEmail.text, cpf: txtFieldCPF.text, phoneNumber: phoneNumberApoio, password: txtFieldPassword.text, confirmPassword: txtFieldPasswordConfirm.text, emailNewsletter: switchEmailNewsletter.isOn)
+        txtFieldFullName.isEnabled = false
+        txtFieldEmail.isEnabled = false
+        txtFieldCPF.isEnabled = false
+        txtFieldPhoneNumber.isEnabled = false
+        txtFieldPassword.isEnabled = false
+        txtFieldPasswordConfirm.isEnabled = false
+        btnRegister.isEnabled = false
+        
+        if ConnectivityHelper.isConnectedToInternet() {
+            self.registerPresenter.register(fullName: txtFieldFullName.text, email: txtFieldEmail.text, cpf: txtFieldCPF.text, phoneNumber: phoneNumberApoio, password: txtFieldPassword.text, confirmPassword: txtFieldPasswordConfirm.text, emailUpdate: switchEmailNewsletter.isOn)
+        } else {
+            showMessageAlert(title: "Atenção", message: "Verifique sua conexão com a internet e tente novamente.")
+        }
     }
     
-    
     func showMessageAlert(title: String, message: String) {
+        
+        txtFieldFullName.isEnabled = true
+        txtFieldEmail.isEnabled = true
+        txtFieldCPF.isEnabled = true
+        txtFieldPhoneNumber.isEnabled = true
+        txtFieldPassword.isEnabled = true
+        txtFieldPasswordConfirm.isEnabled = true
+        btnRegister.isEnabled = true
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         

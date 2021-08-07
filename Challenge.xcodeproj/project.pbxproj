@@ -13,6 +13,7 @@
 		150EFCA926BB2ADE0060CB49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150EFCA726BB2ADE0060CB49 /* Main.storyboard */; };
 		150EFCAB26BB2AE10060CB49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150EFCAA26BB2AE10060CB49 /* Assets.xcassets */; };
 		150EFCAE26BB2AE10060CB49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150EFCAC26BB2AE10060CB49 /* LaunchScreen.storyboard */; };
+		15240DE626BE1E9C00A12934 /* ConnectivityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15240DE526BE1E9C00A12934 /* ConnectivityHelper.swift */; };
 		155F68A226BC10E200686AEA /* MobileSessionDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F68A126BC10E200686AEA /* MobileSessionDAO.swift */; };
 		155F68A526BC111D00686AEA /* MobileSessionDAOImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F68A426BC111D00686AEA /* MobileSessionDAOImpl.swift */; };
 		155F68A826BC13CB00686AEA /* BaseDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155F68A726BC13CB00686AEA /* BaseDAO.swift */; };
@@ -41,6 +42,7 @@
 		150EFCAA26BB2AE10060CB49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		150EFCAD26BB2AE10060CB49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		150EFCAF26BB2AE10060CB49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15240DE526BE1E9C00A12934 /* ConnectivityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityHelper.swift; sourceTree = "<group>"; };
 		155F68A126BC10E200686AEA /* MobileSessionDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileSessionDAO.swift; sourceTree = "<group>"; };
 		155F68A426BC111D00686AEA /* MobileSessionDAOImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileSessionDAOImpl.swift; sourceTree = "<group>"; };
 		155F68A726BC13CB00686AEA /* BaseDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDAO.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				15F51F1426BB948A003D5A22 /* ActivityIndicatorHelper.swift */,
+				15240DE526BE1E9C00A12934 /* ConnectivityHelper.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				155F68A826BC13CB00686AEA /* BaseDAO.swift in Sources */,
 				159FAA7F26BB73510030A633 /* RegisterViewController.swift in Sources */,
 				159FAA9226BB78FC0030A633 /* MyViewControllerDelegate.swift in Sources */,
+				15240DE626BE1E9C00A12934 /* ConnectivityHelper.swift in Sources */,
 				15F51F1526BB948A003D5A22 /* ActivityIndicatorHelper.swift in Sources */,
 				15F51F2A26BC0F14003D5A22 /* RealmHelper.swift in Sources */,
 				155F68A226BC10E200686AEA /* MobileSessionDAO.swift in Sources */,

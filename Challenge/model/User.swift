@@ -10,7 +10,6 @@ import RealmSwift
 
 class User: Object, Codable {
     
-    let rowId = RealmOptional<Int>()
     @objc dynamic var id: String?
     @objc dynamic var name: String?
     @objc dynamic var email: String?
@@ -19,6 +18,6 @@ class User: Object, Codable {
     @objc dynamic var phoneNumber: String?
     
     func primaryKey() -> String? {
-        return "rowId"
+        return "id"
     }
 }
