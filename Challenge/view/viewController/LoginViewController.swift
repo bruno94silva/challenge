@@ -22,18 +22,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, MyViewProtocol
         loginPresenter = LoginPresenter(view: self, activityIndicatorHelper: ActivityIndicatorHelper(view: view))
         
         txtFieldEmail.delegate = self
-        txtFieldPassword.delegate = self        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        txtFieldPassword.delegate = self
+        
         btnLogin.layer.cornerRadius = 10
+              
+        let viewFrameWidth = view.frame.width
         
         let bottomLineEmail = CALayer()
-        bottomLineEmail.frame = CGRect(x: 0, y: txtFieldEmail.frame.height - 2, width: txtFieldEmail.frame.width, height: 2)
+        bottomLineEmail.frame = CGRect(x: 0, y: txtFieldEmail.frame.height - 2, width: viewFrameWidth - 76, height: 2)
         bottomLineEmail.backgroundColor = UIColor.white.cgColor
     
         let bottomLineSenha = CALayer()
-        bottomLineSenha.frame = CGRect(x: 0, y: txtFieldPassword.frame.height - 2, width: txtFieldPassword.frame.width, height: 2)
+        bottomLineSenha.frame = CGRect(x: 0, y: txtFieldPassword.frame.height - 2, width: viewFrameWidth - 76, height: 2)
         bottomLineSenha.backgroundColor = UIColor.white.cgColor
         
         txtFieldEmail.borderStyle = UITextField.BorderStyle.none

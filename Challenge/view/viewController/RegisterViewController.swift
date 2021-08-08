@@ -31,33 +31,33 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, MyViewProto
         txtFieldPhoneNumber.delegate = self
         txtFieldPassword.delegate = self
         txtFieldPasswordConfirm.delegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         btnRegister.layer.cornerRadius = 10
 
+        let viewFrameWidth = view.frame.width
+        
         let bottomLineFullName = CALayer()
-        bottomLineFullName.frame = CGRect(x: 0, y: txtFieldFullName.frame.height - 2, width: txtFieldFullName.frame.width, height: 2)
+        bottomLineFullName.frame = CGRect(x: 0, y: txtFieldFullName.frame.height - 2, width: viewFrameWidth - 32, height: 2)
         bottomLineFullName.backgroundColor = UIColor.white.cgColor
         
         let bottomLineEmail = CALayer()
-        bottomLineEmail.frame = CGRect(x: 0, y: txtFieldEmail.frame.height - 2, width: txtFieldEmail.frame.width, height: 2)
+        bottomLineEmail.frame = CGRect(x: 0, y: txtFieldEmail.frame.height - 2, width: viewFrameWidth - 32, height: 2)
         bottomLineEmail.backgroundColor = UIColor.white.cgColor
         
         let bottomLineCPF = CALayer()
-        bottomLineCPF.frame = CGRect(x: 0, y: txtFieldCPF.frame.height - 2, width: txtFieldCPF.frame.width, height: 2)
+        bottomLineCPF.frame = CGRect(x: 0, y: txtFieldCPF.frame.height - 2, width: viewFrameWidth - 32, height: 2)
         bottomLineCPF.backgroundColor = UIColor.white.cgColor
         
         let bottomLinePhoneNumber = CALayer()
-        bottomLinePhoneNumber.frame = CGRect(x: 0, y: txtFieldPhoneNumber.frame.height - 2, width: txtFieldPhoneNumber.frame.width, height: 2)
+        bottomLinePhoneNumber.frame = CGRect(x: 0, y: txtFieldPhoneNumber.frame.height - 2, width: viewFrameWidth - 32, height: 2)
         bottomLinePhoneNumber.backgroundColor = UIColor.white.cgColor
         
         let bottomLinePassword = CALayer()
-        bottomLinePassword.frame = CGRect(x: 0, y: txtFieldPassword.frame.height - 2, width: txtFieldPassword.frame.width, height: 2)
+        bottomLinePassword.frame = CGRect(x: 0, y: txtFieldPassword.frame.height - 2, width: viewFrameWidth - 32, height: 2)
         bottomLinePassword.backgroundColor = UIColor.white.cgColor
         
         let bottomLinePasswordConfirm = CALayer()
-        bottomLinePasswordConfirm.frame = CGRect(x: 0, y: txtFieldPasswordConfirm.frame.height - 2, width: txtFieldPasswordConfirm.frame.width, height: 2)
+        bottomLinePasswordConfirm.frame = CGRect(x: 0, y: txtFieldPasswordConfirm.frame.height - 2, width: viewFrameWidth - 32, height: 2)
         bottomLinePasswordConfirm.backgroundColor = UIColor.white.cgColor
         
         txtFieldFullName.borderStyle = UITextField.BorderStyle.none

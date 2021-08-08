@@ -24,19 +24,25 @@ class ChallengeUITests: XCTestCase {
 
     func testRegisterUserAndLoginAndLogout() throws {
 
+        /* Se ocorrer um erro ao rodar no simulador, por favor verifique que a opção no menu do simulador I\O > Keyboard > Connect Hardware Keyboard esteja desabilitada. */
+        
         let app = XCUIApplication()
         app.launch()
-                  
-        app.buttons["REGISTRE-SE"].tap()
+        sleep(1)
         
+        app.buttons["REGISTRE-SE"].tap()
+                
         app.textFields["Nome Completo"].tap()
+        
         app.textFields["Nome Completo"].typeText("Bruno Silva")
         
         app/*@START_MENU_TOKEN@*/.buttons["Next:"]/*[[".keyboards",".buttons[\"next\"]",".buttons[\"Next:\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
+                
         app.textFields["E-mail"].typeText("94bruno.silva@gmail.com")
         
         app/*@START_MENU_TOKEN@*/.buttons["Next:"]/*[[".keyboards",".buttons[\"next\"]",".buttons[\"Next:\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        sleep(1)
         
         app.textFields["CPF"].typeText("42587366860")
         
@@ -45,7 +51,7 @@ class ChallengeUITests: XCTestCase {
         
         app.secureTextFields["Senha"].tap()
         
-        sleep(2)
+        sleep(1)
         
         app.secureTextFields["Senha"].typeText("BrunoSilva94")
                 
