@@ -24,7 +24,7 @@ class ChallengeUITests: XCTestCase {
 
     func testRegisterUserAndLoginAndLogout() throws {
 
-        /* Se ocorrer um erro ao rodar no simulador, por favor verifique que a opção no menu do simulador I\O > Keyboard > Connect Hardware Keyboard esteja desabilitada. */
+        /* Se ocorrer um erro ao rodar no simulador, por favor verifique que a opção no menu "I\O > Keyboard > Connect Hardware Keyboard" do simulador  esteja desabilitada. */
         
         let app = XCUIApplication()
         app.launch()
